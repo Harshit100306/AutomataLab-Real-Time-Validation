@@ -1,0 +1,10 @@
+flowchart TD
+S([Start]) --> L["Local part: require valid non-dot character"]
+L --> P["Consume allowed local characters"]
+P -->|single @ after valid local part| D["Domain: require alphanumeric"]
+D --> G["Consume domain label"]
+G -->|dot after valid label| D
+G -->|end; final label ≥2 letters and prior dot exists| A((Accept))
+P -->|malformed dot / invalid / extra @| R[["Reject"]]
+D -->|invalid / empty label| R
+G -->|invalid / malformed| R

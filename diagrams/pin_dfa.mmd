@@ -1,0 +1,11 @@
+flowchart LR
+S([Start]) --> q0((q0))
+q0 -->|digit| q1((q1))
+q1 -->|digit| q2((q2))
+q2 -->|digit| q3((q3))
+q3 -->|digit| q4(((q4 · Accept)))
+q0 -->|non-digit| R[["Reject"]]
+q1 -->|non-digit| R
+q2 -->|non-digit| R
+q3 -->|non-digit| R
+q4 -->|any extra symbol| R
